@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Test</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Online Test</h1>
+    <form action="/submit" method="POST">
+        <% questions.forEach((question, index) => { %>
+            <div class="question">
+                <p><%= question.question %></p>
+                <% question.options.forEach(option => { %>
+                    <label>
+                        <input type="radio" name="q<%= index %>" value="<%= option %>"> <%= option %>
+                    </label>
+                <% }) %>
+            </div>
+        <% }) %>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
